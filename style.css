@@ -6,16 +6,11 @@ html {
 }
 
 body,
-button {
+.button {
     margin: 0;
     font-family: Inter, Helvetica, Verdana, Arial, sans-serif;
     text-rendering: optimizeLegibility;
     color: #fff;
-}
-
-#header,
-.important {
-    background-color: #444;
 }
 
 #header {
@@ -63,8 +58,10 @@ button {
 #header .btns>img {
     width: 24px;
     height: 24px;
-    padding-left: 16px;
+    padding: 8px;
+    margin-top: -8px;
     vertical-align: middle;
+    border-radius: 16px;
 }
 
 h1,
@@ -80,6 +77,11 @@ h3 {
     margin: 0;
 }
 
+.services>li {
+    padding: 8px;
+    border-radius: 8px;
+}
+
 .services>li.running h3:after {
     content: url("/icons/running.svg");
     width: 16px;
@@ -93,11 +95,13 @@ h3 {
     top: 2px;
 }
 
-ul.services {
+.services {
     list-style: none;
+    padding: 8px;
+    overflow: hidden;
 }
 
-ul.services>li>address {
+.services>li>address {
     font-style: normal;
     color: #ccc;
     line-height: 20px;
@@ -108,9 +112,9 @@ ul.services>li>address {
     margin-bottom: 32px;
 }
 
-/* Buttons */
+/* .buttons */
 
-button,
+.button,
 input,
 textarea {
     border-radius: 16px;
@@ -122,7 +126,7 @@ textarea {
     height: 40px;
 }
 
-button>img {
+.button>img {
     width: 16px;
     height: 16px;
     margin-left: 8px;
@@ -133,7 +137,7 @@ button>img {
     top: 2px;
 }
 
-button.no-text>img {
+.button.no-text>img {
     width: 24px;
     height: 24px;
     margin-left: 0;
@@ -141,20 +145,43 @@ button.no-text>img {
     top: 0;
 }
 
-button.secondary {
-    background-color: #30403F;
+.button.secondary {
     border-color: #248C83;
+    background-color: #30403F;
+    transition: background-color 0.3s;
 }
 
-button.tertiary,
+.button.secondary:hover {
+    background-color: #22605E;
+}
+
+#header,
+.important,
+.button.tertiary,
 input,
-textarea {
-    background-color: #3b3b3b;
+textarea { 
+    background-color: #444;
     border-color: #676767;
     color: #fff;
+}
+
+.button.tertiary,
+input,
+textarea,
+.services>li,
+#header .btns>img {
     text-rendering: optimizeLegibility;
     font-family: Inter;
     font-weight: normal;
+    transition: background-color 0.3s;
+}
+
+.button.tertiary:hover,
+input:hover,
+textarea:hover,
+.services>li:hover,
+#header .btns>img:hover { 
+    background-color: #676767;
 }
 
 ::placeholder {
@@ -170,18 +197,29 @@ textarea {
     font-family: JetBrains Mono;
 }
 
-button.primary {
+a.button {
+    height: 24px;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+.button.primary {
     background-color: #248C83;
     border: none;
     font-weight: bold;
-    padding: auto;
+    transition: background-color 0.3s;
+    padding: 8px 16px;
 }
 
-button.primary.destructive {
+.button.primary:hover {
+    background-color: #26A99E;
+}
+
+.button.primary.destructive {
     background-color: #AB4252;
 }
 
-.container>button {
+.container>.button {
     width: 100%;
 }
 
@@ -210,7 +248,7 @@ ul {
     flex-direction: row-reverse;
 }
 
-.button-row>button {
+.button-row>.button {
     margin-top: 8px;
     width: 100%;
 }
