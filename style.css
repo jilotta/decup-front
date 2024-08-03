@@ -13,16 +13,16 @@ button {
     color: #fff;
 }
 
-header,
+#header,
 .important {
     background-color: #444;
 }
 
-header {
+#header {
     padding: 16px 32px;
 }
 
-main {
+#main {
     padding: 32px;
 }
 
@@ -56,11 +56,11 @@ main {
     float: right;
 }
 
-header .btns {
+#header .btns {
     width: 80px;
 }
 
-header .btns>img {
+#header .btns>img {
     width: 24px;
     height: 24px;
     padding-left: 16px;
@@ -104,7 +104,7 @@ ul.services>li>address {
 }
 
 
-main>.container>* {
+#main>.container>* {
     margin-bottom: 32px;
 }
 
@@ -142,7 +142,7 @@ button.no-text>img {
 }
 
 button.secondary {
-    background-color: rgba(55, 102, 191, 15%);
+    background-color: #30403F;
     border-color: #248C83;
 }
 
@@ -171,10 +171,14 @@ textarea {
 }
 
 button.primary {
-    background-color: #3766BF;
+    background-color: #248C83;
     border: none;
     font-weight: bold;
     padding: auto;
+}
+
+button.primary.destructive {
+    background-color: #AB4252;
 }
 
 .container>button {
