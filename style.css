@@ -39,7 +39,8 @@ button {
 
 .button,
 input,
-textarea {
+textarea,
+textarea:disabled {
     border: 2px solid;
     text-decoration: none;
 }
@@ -86,14 +87,17 @@ textarea {
 
 .tertiary.button,
 input,
-textarea {
+textarea,
+textarea:disabled {
     background-color: #505050;
     border-color: #676767;
+    color: #fff;
 }
 
 .tertiary.button:hover,
 input:hover,
 textarea:hover,
+textarea:disabled:hover,
 #header .btns img:hover {
     background-color: #454545;
 }
