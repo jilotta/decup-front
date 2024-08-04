@@ -22,22 +22,26 @@
       <div class="heading-with-btns">
         <h2>Сервисы</h2>
         <div class="btns">
-          <button class="tertiary no-text"><img src="icons/add.svg" alt="Add service"></button>
+          <a class="no-text tertiary button" href="add1.html" aria-role="button"><img src="icons/add.svg" alt="Add service"></a>
         </div>
       </div>
 
-      <ul class="important services">
+      <ul class="services">
         <li class="running">
-          <h3>Gitea</h3>
-          <address>git.nickname.org</address>
+          <a href="service.html">
+            <h3>Gitea <span style="color: #ccc">(работает)</span></h3>
+            <address>git.nickname.org</address>
+          </a>
         </li>
         <li>
-          <h3>Misskey</h3>
-          <address>mk.nickname.org</address>
+          <a href="service.html?gitea">
+            <h3>Misskey</h3>
+            <address>mk.nickname.org</address>
+          </a>
         </li>
       </ul>
 
-      <button class="primary"><span>Статистика сервисов</span><img src="icons/statistics.svg" alt="Add service"></button>
+      <a class="primary button" aria-role="button"><span>Статистика сервисов</span><img src="icons/statistics.svg" alt="Add service"></a>
     </div>
   </div>
 </body>

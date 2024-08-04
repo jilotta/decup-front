@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DecUp - Настройки сервиса</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="header">
+    <div class="container">
+      <h1>Настройки сервиса</h1>
+    </div>
+  </div>
+  <div id="main">
+    <form class="container" method="post">
+      <input value="Gitea" name="name" class="name" style="margin-bottom: 0;">
+
+      <div class="button-row">
+        <a class="primary destructive button" style="line-height: 24px;" aria-role="button"><span>Остановить</span><img
+            src="icons/stop.svg" alt="Stop"></a>
+        <a class="small tertiary no-text button" style="line-height: 24px;" aria-role="button"><img
+            src="icons/bigdocs.svg" alt="Documentation"></a>
+      </div>
+
+      <a class="secondary button" style="line-height: 24px;" aria-role="button" href="home.html"><span>Все сервисы</span></a>
+
+      <h3 style="margin-bottom: 8px;">Полное доменное имя (FQDN)</h3>
+      <input class="code" name="fqdn" value="git.nickname.org">
+
+      <h3 style="margin-bottom: 8px;">Порты (через пробел)</h3>
+      <input class="code" name="ports" value="80 443 6969">
+
+      <h3 style="margin-bottom: 8px;">Переменные окружения</h3>
+      <textarea class="code" name="vars">VAR1=123123</textarea>
+
+      <button type="submit" class="primary button" style="line-height: 24px;">
+        <span>Сохранить изменения</span><img src="icons/save.svg" alt="Save">
+      </button>
+    </form>
+  </div>
+</body>
+
+</html>

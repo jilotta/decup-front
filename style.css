@@ -2,32 +2,21 @@
 
 html {
     background-color: #333;
-    color: #fff;
 }
 
 body,
-.button {
+input,
+textarea,
+a,
+button {
     margin: 0;
     font-family: Inter, Helvetica, Verdana, Arial, sans-serif;
     text-rendering: optimizeLegibility;
     color: #fff;
 }
 
-#header {
-    padding: 16px 32px;
-}
-
-#main {
-    padding: 32px;
-}
-
-.important {
-    padding: 0px 16px 16px 16px;
-    border-radius: 16px;
-}
-
-.important>* {
-    padding-top: 16px;
+* {
+    transition: border-color 0.3s, background-color 0.3s !important;
 }
 
 .container {
@@ -36,19 +25,126 @@ body,
     max-width: 800px;
 }
 
-.heading-with-btns {
-    align-items: center;
+/* Colors */
+
+#header,
+.important,
+.services {
+    background-color: #505050;
 }
 
-.heading-with-btns>h1,
-.heading-with-btns>h2,
-.heading-with-btns>h3 {
-    display: inline;
-    clear: both;
+.services address {
+    color: #ccc;
 }
 
-.heading-with-btns .btns {
-    float: right;
+.button,
+input,
+textarea {
+    border: 2px solid;
+    text-decoration: none;
+}
+
+.primary.button {
+    background-color: #3766BF;
+}
+
+.primary.button:hover,
+.primary.button:focus {
+    background-color: #375FAA;
+}
+
+.primary.button:active {
+    background-color: #355187;
+}
+
+.primary.button.destructive {
+    background-color: #C03434;
+}
+
+.primary.button.destructive:hover,
+.primary.button.destructive:focus {
+    background-color: #AB3434;
+}
+
+.primary.button.destructive:active {
+    background-color: #883434;
+}
+
+.secondary.button {
+    border-color: #3766BF;
+    background-color: #35486B;
+}
+
+.secondary.button:hover,
+.secondary.button:focus {
+    background-color: #343F56;
+}
+
+.secondary.button:active {
+    background-color: #333840;
+}
+
+.tertiary.button,
+input,
+textarea {
+    background-color: #505050;
+    border-color: #676767;
+}
+
+.tertiary.button:hover,
+input:hover,
+textarea:hover,
+#header .btns img:hover {
+    background-color: #454545;
+}
+
+.tertiary.button:focus,
+#header .btns img:focus {
+    background-color: #454545;
+}
+
+:focus {
+    border-color: #ccc;
+    outline: none;
+}
+
+.tertiary.button:active,
+#header .btns img:active {
+    background-color: #3a3a3a;
+}
+
+.services a:focus,
+.services a:hover {
+    background-color: #5b5b5b;
+}
+
+.services a:active {
+    background-color: #616161;
+}
+
+/* Headings */
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+h1,
+h2 {
+    font-size: 24px;
+    line-height: 24px;
+}
+
+h3 {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+/* Header */
+
+#header {
+    padding: 16px 32px;
 }
 
 #header .btns {
@@ -61,49 +157,59 @@ body,
     padding: 8px;
     margin-top: -8px;
     vertical-align: middle;
+    /* fix weird padding */
     border-radius: 16px;
 }
 
-h1,
-h2 {
-    font-size: 24px;
-    line-height: 24px;
-    margin: 0;
+.heading-with-btns {
+    align-items: center;
 }
 
-h3 {
-    font-size: 16px;
-    line-height: 16px;
-    margin: 0;
+.heading-with-btns h1,
+.heading-with-btns h2 {
+    display: inline;
+    clear: both;
 }
 
-.services>li {
+.heading-with-btns .btns {
+    float: right;
+}
+
+/* Main */
+
+#main {
+    padding: 32px;
+}
+
+.important,
+.services {
+    padding: 0 16px 16px 16px;
+    border-radius: 16px;
+}
+
+.services>* {
+    padding-top: 8px;
+}
+
+.important>* {
+    padding-top: 16px;
+}
+
+.services a {
     padding: 8px;
     border-radius: 8px;
-}
-
-.services>li.running h3:after {
-    content: url("/icons/running.svg");
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
-    display: inline-block;
-    vertical-align: baseline;
-
-    /* awful hack */
-    position: relative;
-    top: 2px;
+    display: block;
+    text-decoration: none;
 }
 
 .services {
     list-style: none;
-    padding: 8px;
+    padding: 0 8px 8px 8px;
     overflow: hidden;
 }
 
-.services>li>address {
+.services address {
     font-style: normal;
-    color: #ccc;
     line-height: 20px;
 }
 
@@ -112,18 +218,18 @@ h3 {
     margin-bottom: 32px;
 }
 
-/* .buttons */
+/* Buttons */
 
 .button,
 input,
 textarea {
     border-radius: 16px;
-    border: 2px solid;
     height: 24px;
     font-size: 16px;
     line-height: 16px;
     padding: 6px 14px;
     height: 40px;
+    box-sizing: border-box;
 }
 
 .button>img {
@@ -131,57 +237,17 @@ textarea {
     height: 16px;
     margin-left: 8px;
     vertical-align: baseline;
-
-    /* awful hack */
-    position: relative;
-    top: 2px;
 }
 
 .button.no-text>img {
     width: 24px;
     height: 24px;
     margin-left: 0;
-    vertical-align: middle;
-    top: 0;
 }
 
-.button.secondary {
-    border-color: #248C83;
-    background-color: #30403F;
-    transition: background-color 0.3s;
-}
-
-.button.secondary:hover {
-    background-color: #22605E;
-}
-
-#header,
-.important,
-.button.tertiary,
-input,
-textarea { 
-    background-color: #444;
-    border-color: #676767;
-    color: #fff;
-}
-
-.button.tertiary,
-input,
-textarea,
-.services>li,
-#header .btns>img {
-    text-rendering: optimizeLegibility;
-    font-family: Inter;
-    font-weight: normal;
-    transition: background-color 0.3s;
-}
-
-.button.tertiary:hover,
-input:hover,
-textarea:hover,
-.services>li:hover,
-#header .btns>img:hover { 
-    background-color: #676767;
+.docs {
+    position: relative;
+    top: 1px;
 }
 
 ::placeholder {
@@ -197,26 +263,16 @@ textarea:hover,
     font-family: JetBrains Mono;
 }
 
-a.button {
-    height: 24px;
+.button {
+    display: block;
     text-align: center;
-    vertical-align: baseline;
+    line-height: 24px;
 }
 
 .button.primary {
-    background-color: #248C83;
     border: none;
     font-weight: bold;
-    transition: background-color 0.3s;
     padding: 8px 16px;
-}
-
-.button.primary:hover {
-    background-color: #26A99E;
-}
-
-.button.primary.destructive {
-    background-color: #AB4252;
 }
 
 .container>.button {
@@ -228,18 +284,17 @@ input {
     height: 100%;
     min-height: 24px;
     width: 100%;
-    margin: 0 -16px;
     display: block;
     line-height: 24px;
 }
 
-.input {
-    padding: 0 16px;
+textarea {
+    resize: vertical;
 }
 
 ul {
     padding-left: 16px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .button-row {
@@ -253,6 +308,11 @@ ul {
     width: 100%;
 }
 
-.button-row > .small {
+.button-row>.small {
     flex-shrink: 1000;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
 }

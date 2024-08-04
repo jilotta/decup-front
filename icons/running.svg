@@ -1,10 +1,56 @@
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_89_44)">
-<path d="M7.99992 3.99992V7.99992L10.6666 9.33325M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z" stroke="#0DFF9A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_89_44">
-<rect width="16" height="16" fill="white"/>
-</clipPath>
-</defs>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   fill="none"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="running.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="26.074563"
+     inkscape:cx="7.9962991"
+     inkscape:cy="8.0154748"
+     inkscape:window-width="2560"
+     inkscape:window-height="1384"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <g
+     clip-path="url(#clip0_89_44)"
+     id="g1"
+     transform="translate(0,0.53375001)">
+    <path
+       d="m 7.99992,3.99992 v 4 l 2.66668,1.33333 m 4,-1.33333 c 0,3.68188 -2.9848,6.66668 -6.66668,6.66668 -3.6819,0 -6.66667,-2.9848 -6.66667,-6.66668 0,-3.6819 2.98477,-6.66667 6.66667,-6.66667 3.68188,0 6.66668,2.98477 6.66668,6.66667 z"
+       stroke="#0dff9a"
+       stroke-width="1.6"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       id="path1" />
+  </g>
+  <defs
+     id="defs1">
+    <clipPath
+       id="clip0_89_44">
+      <rect
+         width="16"
+         height="16"
+         fill="white"
+         id="rect1" />
+    </clipPath>
+  </defs>
 </svg>
