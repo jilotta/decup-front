@@ -260,7 +260,7 @@ textarea {
 }
 
 .code {
-    font-family: JetBrains Mono;
+    font-family: JetBrains Mono, Consolas, 'Courier New', Courier, monospace;
 }
 
 .button {
