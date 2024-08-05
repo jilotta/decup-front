@@ -37,7 +37,7 @@
       <div class="password-wrapper">
         <input class="code" name="password" id="pass" value="sup3rpassw0rd">
         <button type="button" id="showpass"
-          style="position: relative; top: -38px;right:2px;float:right;padding: 6px 14px;height: 36px;border:0"
+          style="position: relative; top: -38px;right:2px;float:right;padding: 6px 14px;height: 36px;border:0;visibility:hidden;"
           class="tertiary no-text button" onclick="showPass()">
           <img src="icons/png/reveal.png" alt="Toggle password">
         </button>
@@ -61,8 +61,8 @@
     var y = document.getElementById("showpass");
     x.type = "password";
 
-    if (x.type != "password") {
-      y.style.visibility = "hidden";
+    if (x.type == "password") {
+      y.style.visibility = "visible";
     }
     function showPass() {
       if (x.type === "password") {
