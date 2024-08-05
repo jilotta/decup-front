@@ -8,7 +8,8 @@ body,
 input,
 textarea,
 a,
-button {
+button,
+select {
     margin: 0;
     font-family: Inter, Helvetica, Verdana, Arial, sans-serif;
     text-rendering: optimizeLegibility;
@@ -39,6 +40,7 @@ button {
 
 .button,
 input,
+select,
 textarea,
 textarea:disabled {
     border: 2px solid;
@@ -87,6 +89,7 @@ textarea:disabled {
 
 .tertiary.button,
 input,
+select,
 textarea,
 textarea:disabled {
     background-color: #505050;
@@ -96,6 +99,7 @@ textarea:disabled {
 
 .tertiary.button:hover,
 input:hover,
+select:hover,
 textarea:hover,
 textarea:disabled:hover,
 #header .btns img:hover {
@@ -155,7 +159,7 @@ h3 {
     width: 80px;
 }
 
-#header .btns>img {
+#header .btns img {
     width: 24px;
     height: 24px;
     padding: 8px;
@@ -226,6 +230,7 @@ h3 {
 
 .button,
 input,
+select,
 textarea {
     border-radius: 16px;
     height: 24px;
@@ -284,7 +289,8 @@ textarea {
 }
 
 textarea,
-input {
+input,
+select {
     height: 100%;
     min-height: 24px;
     width: 100%;
@@ -319,4 +325,31 @@ ul {
 .name {
     font-size: 24px;
     font-weight: bold;
+}
+
+select {
+    position: relative;
+}
+
+select::before,
+select::after {
+  --size: 0.3rem;
+  position: absolute;
+  content: "";
+  right: 1rem;
+  pointer-events: none;
+}
+
+select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid black;
+  top: 40%;
+}
+
+.custom-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid black;
+  top: 55%;
 }
