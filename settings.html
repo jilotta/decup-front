@@ -6,21 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DecUp - Настройки сервиса</title>
   <link rel="stylesheet" href="style.css">
-  <script>
-    function showPass() {
-      var newinput = document.createElement("INPUT");
-      var input = document.getElementById("pass");
-      for (var i = 0, attrs = input.attributes, l = attrs.length; i < l; i++)
-        newinput.setAttribute(attrs.item(i).nodeName, attrs.item(i).nodeValue);
-      if (input.getAttribute("type")[0] === "p") {
-        newinput.setAttribute("type", "text");
-      } else {
-        newinput.setAttribute("type", "password");
-      }
-      var parent = input.parentNode;
-      parent.replaceChild(newinput, input);
-    }
-  </script>
 </head>
 
 <body>
@@ -50,8 +35,8 @@
 
       <h3 style="margin-bottom: 8px;">Пароль</h3>
       <div class="password-wrapper">
-        <input class="code" name="password" type="password" id="pass" value="sup3rpassw0rd">
-        <button type="button"
+        <input class="code" name="password" id="pass" value="sup3rpassw0rd">
+        <button type="button" id="showpass"
           style="position: relative; top: -38px;right:2px;float:right;padding: 6px 14px;height: 36px;border:0"
           class="tertiary no-text button" onclick="showPass()">
           <img src="icons/png/reveal.png" alt="Toggle password">
@@ -70,6 +55,23 @@
       </a>
     </form>
   </div>
+
+  <script>
+    var x = document.getElementById("pass");
+    var y = document.getElementById("showpass");
+    x.type = "password";
+
+    if (x.type != "password") {
+      y.style.visibility = "hidden";
+    }
+    function showPass() {
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>
 </body>
 
 </html>
