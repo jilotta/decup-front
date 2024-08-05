@@ -41,8 +41,7 @@ select {
 .button,
 input,
 select,
-textarea,
-textarea:disabled {
+textarea {
     border: 2px solid;
     text-decoration: none;
 }
@@ -90,8 +89,7 @@ textarea:disabled {
 .tertiary.button,
 input,
 select,
-textarea,
-textarea:disabled {
+textarea {
     background-color: #505050;
     border-color: #676767;
     color: #fff;
@@ -101,7 +99,6 @@ textarea:disabled {
 input:hover,
 select:hover,
 textarea:hover,
-textarea:disabled:hover,
 #header .btns img:hover {
     background-color: #454545;
 }
