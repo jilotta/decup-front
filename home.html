@@ -1,49 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DecUp</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DecUp</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <div id="header">
-    <div class="container heading-with-btns">
-      <h1>DecUp</h1>
-      <div class="btns">
-        <a href="donate.html"><img src="icons/png/donate.png" alt="Donate" role="button"></a><a href="settings.html"><img src="icons/png/settings.png" alt="Settings"></a>
-      </div>
-    </div>
-  </div>
-  <div id="main">
-    <div class="container">
-      <div class="heading-with-btns">
-        <h2>Сервисы</h2>
+  <body>
+    <div id="header">
+      <div class="container heading-with-btns">
+        <h1>DecUp</h1>
         <div class="btns">
-          <a class="no-text tertiary button" href="add1.html" role="button"><img src="icons/png/add.png" alt="Add service"></a>
+          <a href="donate.html">
+            <img src="icons/png/donate.png" alt="Donate" role="button" />
+          </a>
+          <a href="settings.html">
+            <img src="icons/png/settings.png" alt="Settings" role="button" />
+          </a>
         </div>
       </div>
-
-      <ul class="services">
-        <li class="running">
-          <a href="service.html">
-            <h3>Gitea <span style="color: #ccc">(работает)</span></h3>
-            <address>git.nickname.org</address>
-          </a>
-        </li>
-        <li>
-          <a href="service.html?gitea">
-            <h3>Misskey</h3>
-            <address>mk.nickname.org</address>
-          </a>
-        </li>
-      </ul>
-
-      <a class="primary button" role="button"><span>Статистика сервисов</span><img src="icons/png/statistics.png" alt="Statistics"></a>
     </div>
-  </div>
-</body>
+    <div id="main">
+      <div class="container">
+        <div class="heading-with-btns">
+          <h2>Сервисы</h2>
+          <div class="btns">
+            <a class="no-text tertiary button" href="add1.html" role="button">
+              <img src="icons/png/add.png" alt="Add service" />
+            </a>
+          </div>
+        </div>
 
+        <ul class="services">
+          <li class="running">
+            <a href="service.html">
+              <h3>Gitea <span style="color: #ccc">(работает)</span></h3>
+              <address>git.nickname.org</address>
+            </a>
+          </li>
+          <li>
+            <a href="service.html?gitea">
+              <h3>Misskey</h3>
+              <address>mk.nickname.org</address>
+            </a>
+          </li>
+        </ul>
+
+        <a class="primary button" role="button">
+          <span>Статистика сервисов</span>
+          <img src="icons/png/statistics.png" />
+        </a>
+      </div>
+    </div>
+  </body>
 </html>

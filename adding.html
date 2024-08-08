@@ -1,30 +1,72 @@
-<!DOCTYPE html>
-<html lang="en" style="height: 100%;">
+<!doctype html>
+<html lang="en" style="height: 100%">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DecUp - Установка сервиса</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DecUp - Установка сервиса</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body style="height: 100%;">
-  <div id="header">
-    <div class="container">
-      <h1>Установка сервиса</h1>
+  <body style="height: 100%">
+    <div id="header">
+      <div class="container">
+        <h1>Установка сервиса</h1>
+      </div>
     </div>
-  </div>
-  <div id="main" style="height:100%;">
-    <div class="container">
-      <textarea class="code" disabled style="margin-bottom: 8px; height: 100%;" rows="24">
-Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-Voluptatum, fugit quos perspiciatis officia quae cum numquam vel ipsa laboriosam consectetur
-sunt. Amet qui repellat veritatis officiis quos totam accusamus eum?</textarea>
-      <a class="primary button" style="line-height: 24px;" href="home.html" id="done" role="button">
-        <span>Готово</span>
-      </a>
+    <div id="main" style="height: 100%">
+      <div class="container">
+        <textarea
+          class="code"
+          disabled
+          id="output"
+          style="margin-bottom: 8px; height: 100%"
+          rows="24"></textarea>
+        <a
+          class="primary button"
+          style="line-height: 24px; display: none"
+          href="home.html"
+          id="done"
+          role="button">
+          <span>Готово</span>
+        </a>
+      </div>
     </div>
-  </div>
-</body>
+    <script>
+      var button = document.getElementById("done");
 
+      function showMessage(message) {
+        document.getElementById("output").innerHTML += message + "\n";
+      }
+
+      function subscribe() {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:3469/second");
+        xhr.send();
+
+        xhr.onload = function () {
+          // Get and show the message
+          let message = xhr.response;
+          if (message == "[done]") {
+            button.style.display = "block";
+          } else {
+            showMessage(message);
+            // Call subscribe() again to get the next message
+            subscribe();
+          }
+        };
+
+        xhr.onerror = function () {
+          if (response.status == 502) {
+            // Status 502 is a connection timeout error,
+            // may happen when the connection was pending for too long,
+            // and the remote server or a proxy closed it
+            // let's reconnect
+            subscribe();
+          }
+        };
+      }
+
+      subscribe();
+    </script>
+  </body>
 </html>
