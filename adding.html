@@ -19,7 +19,16 @@
           class="code button tertiary"
           disabled
           id="output"
-          style="margin-bottom: 8px; max-height: 70vh; min-height: 64px; height: auto; overflow-y:scroll; white-space: pre-wrap; text-align: left;width: 100%;"></p>
+          style="
+            margin-bottom: 8px;
+            max-height: 70vh;
+            min-height: 64px;
+            height: auto;
+            overflow-y: scroll;
+            white-space: pre-wrap;
+            text-align: left;
+            width: 100%;
+          "></p>
         <a
           class="primary button"
           style="line-height: 24px; display: none"
@@ -41,47 +50,42 @@
       function subscribe() {
         console.log("in fn");
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://ya.ru", true);
+        xhr.open("GET", "http://127.0.0.1:3469/second", true);
 
-        xhr.onload = function () {
-          console.log("xhr loaded");
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            console.log("xhr loaded");
 
-          if (xhr.status != 200) { // analyze HTTP status of the response
-            alert("Error" + xhr.status);
-            if (xhr.status == 502) {
-              // Status 502 is a connection timeout error,
-              // may happen when the connection was pending for too long,
-              // and the remote server or a proxy closed it
-              // let's reconnect
+            if (xhr.status != 200) {
+              // analyze HTTP status of the response
+              console.log("Error" + xhr.status);
+              if (xhr.status == 502) {
+                // Status 502 is a connection timeout error,
+                // may happen when the connection was pending for too long,
+                // and the remote server or a proxy closed it
+                // let's reconnect
+                subscribe();
+              }
+            } else if (xhr.response == "[done]") {
+              button.style.display = "block";
+              subscribe();
+            } else {
+              showMessage(xhr.response);
+              // Call subscribe() again to get the next message
               subscribe();
             }
-          } else if (xhr.response == "[done]") {
-            button.style.display = "block";
-            subscribe();
-          } else {
-            showMessage(xhr.response);
-            // Call subscribe() again to get the next message
-            subscribe();
-          }
-        };
-
-        xhr.onprogress = function(event) {
-          if (event.lengthComputable) {
-            alert("Received "+event.loaded+" of "+event.total+" bytes");
-          } else {
-            alert("Received "+event.loaded+" bytes");
           }
         };
 
         xhr.onerror = function () {
-          alert("Network Error!");
+          console.log("Network Error!");
         };
 
         xhr.ontimeout = function () {
-          alert("Timeout!");
+          console.log("Timeout!");
         };
 
-        xhr.timeout = 1000;
+        xhr.timeout = 60000;
         xhr.send();
         console.log("xhr sent");
       }
