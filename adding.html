@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" style="height: 100%">
   <head>
     <meta charset="UTF-8" />
@@ -15,12 +15,11 @@
     </div>
     <div id="main" style="height: 100%">
       <div class="container">
-        <textarea
-          class="code"
+        <p
+          class="code button tertiary"
           disabled
           id="output"
-          style="margin-bottom: 8px; height: 100%"
-          rows="24"></textarea>
+          style="margin-bottom: 8px; max-height: 70vh; min-height: 64px; height: auto; overflow-y:scroll; white-space: pre-wrap; text-align: left;width: 100%;"></p>
         <a
           class="primary button"
           style="line-height: 24px; display: none"
@@ -35,35 +34,56 @@
       var button = document.getElementById("done");
 
       function showMessage(message) {
+        console.log("showing msg");
         document.getElementById("output").innerHTML += message + "\n";
       }
 
       function subscribe() {
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://localhost:3469/second");
-        xhr.send();
+        console.log("in fn");
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://ya.ru", true);
 
         xhr.onload = function () {
-          // Get and show the message
-          let message = xhr.response;
-          if (message == "[done]") {
+          console.log("xhr loaded");
+
+          if (xhr.status != 200) { // analyze HTTP status of the response
+            alert("Error" + xhr.status);
+            if (xhr.status == 502) {
+              // Status 502 is a connection timeout error,
+              // may happen when the connection was pending for too long,
+              // and the remote server or a proxy closed it
+              // let's reconnect
+              subscribe();
+            }
+          } else if (xhr.response == "[done]") {
             button.style.display = "block";
+            subscribe();
           } else {
-            showMessage(message);
+            showMessage(xhr.response);
             // Call subscribe() again to get the next message
             subscribe();
           }
         };
 
-        xhr.onerror = function () {
-          if (response.status == 502) {
-            // Status 502 is a connection timeout error,
-            // may happen when the connection was pending for too long,
-            // and the remote server or a proxy closed it
-            // let's reconnect
-            subscribe();
+        xhr.onprogress = function(event) {
+          if (event.lengthComputable) {
+            alert("Received "+event.loaded+" of "+event.total+" bytes");
+          } else {
+            alert("Received "+event.loaded+" bytes");
           }
         };
+
+        xhr.onerror = function () {
+          alert("Network Error!");
+        };
+
+        xhr.ontimeout = function () {
+          alert("Timeout!");
+        };
+
+        xhr.timeout = 1000;
+        xhr.send();
+        console.log("xhr sent");
       }
 
       subscribe();

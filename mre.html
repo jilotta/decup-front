@@ -10,8 +10,10 @@
       var xhr = new XMLHttpRequest();
       xhr.open("GET", "http://localhost:8080", true);
 
-      xhr.onload = function () {
-        console.log("Responded: " + xhr.status + " " + xhr.response);
+      xhr.onreadystatechange = function () {
+	if (xhr.readyState == 4) {
+          console.log("Responded: "+xhr.status+" "+xhr.responseText);
+        }
       };
 
       xhr.onerror = function () {
